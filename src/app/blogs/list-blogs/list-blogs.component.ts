@@ -15,6 +15,8 @@ export class ListBlogsComponent implements OnInit {
   vote = true;
   ActivateAddBlog:boolean=false;
 
+  text="test"
+
   ngOnInit(): void {
     this.getAllBlogs();
   }
@@ -58,5 +60,8 @@ export class ListBlogsComponent implements OnInit {
     localStorage.setItem('id', id);
     this.router.navigateByUrl('/details');
   }
+
+
+
 
 }

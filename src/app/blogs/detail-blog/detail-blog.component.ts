@@ -12,6 +12,8 @@ export class DetailBlogComponent implements OnInit {
   blogId = localStorage.getItem('id');
   blog
   vote
+  upvote
+  downvote
 
   ngOnInit(): void {
     this.getOneBlog();
@@ -21,14 +23,46 @@ export class DetailBlogComponent implements OnInit {
     this.blogService.getBlog(this.blogId).subscribe(
       res => {
         this.blog = res;
-        console.log("blog:",this.blog);
-        this.vote = this.blog.upvote - this.blog.downvote
-        console.log("this.vote:",this.vote);
+        this.upvote = this.blog.upvote
+        this.downvote = this.blog.downvote
+        this.vote = this.upvote - this.downvote
+        console.log("res:",res);
       },
       err => {
         console.log(err);
       },
     );
+  }
+
+  up(){
+    this.upvote ++;
+    this.vote ++;
+    var val = {
+      title:this.blog.title,
+      content:this.blog.content,
+      author:this.blog.author,
+      upvote:this.upvote,
+      downvote:this.downvote
+    };
+    this.blogService.editBlog(this.blogId,val).subscribe(res=>{
+    });
+    console.log("val",val)
+  }
+
+  down(){
+    this.downvote ++;
+    this.vote --;
+
+    var val = {
+      title:this.blog.title,
+      content:this.blog.content,
+      author:this.blog.author,
+      upvote:this.upvote,
+      downvote:this.downvote
+    };
+    this.blogService.editBlog(this.blogId,val).subscribe(res=>{
+    });
+    console.log("val",val)
   }
 
 

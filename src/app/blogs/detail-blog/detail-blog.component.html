@@ -13,7 +13,13 @@
                         <div class="media">
                             <div class="media-body">
                                 <h6 class="my-0 text-white d-block">{{blog.author}}</h6>
-                                <small>{{vote}}</small>
+                                <div class="blah">
+                                    <div id="upvote" (click)="up()"></div><br>
+                                    <div>
+                                        {{vote}}
+                                    </div><br><br>
+                                    <div id="downvote" (click)="down()"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -22,4 +28,3 @@
         </div>
     </div>
 </div>
-  

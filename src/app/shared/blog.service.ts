@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class BlogService {
    }
 
   addBlog(body){
+    console.log("body",body)
     return this.httpClient.post(this.baseUrl, body);
   }
 
@@ -25,6 +27,12 @@ export class BlogService {
 
   getBlog(id) { 
     return this.httpClient.get(this.baseUrl  + id);
+  }
+
+  editBlog(id,body){
+    console.log("id:",id)
+    console.log("body:",body)
+    return this.httpClient.put(this.baseUrl + id, body)
   }
 
 }
