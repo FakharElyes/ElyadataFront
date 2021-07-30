@@ -23,6 +23,9 @@ export class ListBlogsComponent implements OnInit {
   blogstitle;
   blogscontent
 
+  listOfBlogs = [];
+
+
   text="test"
 
   listUnfiltred = true;
@@ -67,6 +70,7 @@ export class ListBlogsComponent implements OnInit {
     this.blogs.forEach(element => {
       if(element.content.includes(this.content)){
         this.blogscontent = element;
+        this.listOfBlogs.push(this.blogscontent)
       }});
     this.listUnfiltred = false;
     this.listFiltredContent = true;
@@ -78,7 +82,11 @@ export class ListBlogsComponent implements OnInit {
     this.blogs.forEach(element => {
       if(element.title.includes(this.title)){
         this.blogstitle = element;
+        this.listOfBlogs.push(this.blogstitle)
+        console.log(element)
       }});
+
+    console.log("this.listOfBlogs:",this.listOfBlogs)
     this.listUnfiltred = false;
     this.listFiltredContent = false;
     this.listFiltredTitle = true;
@@ -89,6 +97,7 @@ export class ListBlogsComponent implements OnInit {
     this.blogs.forEach(element => {
       if(element.author.includes(this.author)){
         this.blogsauthor = element;
+        this.listOfBlogs.push(this.blogsauthor)
       }});
     this.listUnfiltred = false;
     this.listFiltredContent = false;

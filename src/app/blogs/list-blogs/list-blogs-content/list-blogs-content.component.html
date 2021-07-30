@@ -1,12 +1,17 @@
+<div *ngFor="let b of blogscontent" class="data-card" (click)="onCardClick(b.id)"> 
+    <span data-dummy="{{getBorder(b.upvote,b.downvote)}}" ></span>
+
 <div *ngIf="vote; else elseBlock" data-test="vote">
-    <app-cardup [title]=blogscontent.title 
-              [author]=blogscontent.author 
-              [upvote]=blogscontent.upvote 
-              [downvote]=blogscontent.downvote></app-cardup>
+    <app-cardup [title]=b.title 
+              [author]=b.author 
+              [upvote]=b.upvote 
+              [downvote]=b.downvote></app-cardup>
 </div>
 <ng-template #elseBlock>
-    <app-carddown [title]=blogscontent.title 
-                  [author]=blogscontent.author 
-                  [upvote]=blogscontent.upvote 
-                  [downvote]=blogscontent.downvote></app-carddown>
+    <app-carddown [title]=b.title 
+                  [author]=b.author 
+                  [upvote]=b.upvote 
+                  [downvote]=b.downvote></app-carddown>
 </ng-template>
+
+</div>
