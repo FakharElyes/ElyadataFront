@@ -1,1 +1,12 @@
-{{author}}
+      <div *ngIf="vote; else elseBlock" data-test="vote">
+          <app-cardup [title]=blogsauthor.title 
+                    [author]=blogsauthor.author 
+                    [upvote]=blogsauthor.upvote 
+                    [downvote]=blogsauthor.downvote></app-cardup>
+      </div>
+      <ng-template #elseBlock>
+          <app-carddown [title]=blogsauthor.title 
+                        [author]=blogsauthor.author 
+                        [upvote]=blogsauthor.upvote 
+                        [downvote]=blogsauthor.downvote></app-carddown>
+      </ng-template>

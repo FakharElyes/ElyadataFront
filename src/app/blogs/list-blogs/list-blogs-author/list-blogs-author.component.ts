@@ -9,13 +9,12 @@ import { BlogService } from 'src/app/shared/blog.service';
 })
 export class ListBlogsAuthorComponent implements OnInit {
 
-  @Input() author;
+  @Input() blogsauthor;
 
   constructor(private router: Router, private blogService:BlogService) { }
 
   vote = true;
-  blogs;
-  blogsAuthor;
+  
 
   ngOnInit(): void {
   }

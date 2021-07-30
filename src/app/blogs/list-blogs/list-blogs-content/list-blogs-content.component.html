@@ -1,1 +1,12 @@
-<p>list-blogs-content works!</p>
+<div *ngIf="vote; else elseBlock" data-test="vote">
+    <app-cardup [title]=blogscontent.title 
+              [author]=blogscontent.author 
+              [upvote]=blogscontent.upvote 
+              [downvote]=blogscontent.downvote></app-cardup>
+</div>
+<ng-template #elseBlock>
+    <app-carddown [title]=blogscontent.title 
+                  [author]=blogscontent.author 
+                  [upvote]=blogscontent.upvote 
+                  [downvote]=blogscontent.downvote></app-carddown>
+</ng-template>

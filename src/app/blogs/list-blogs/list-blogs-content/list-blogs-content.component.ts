@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BlogService } from 'src/app/shared/blog.service';
 
 @Component({
   selector: 'app-list-blogs-content',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListBlogsContentComponent implements OnInit {
 
-  constructor() { }
+  @Input() blogscontent;
+
+  constructor(private router: Router, private blogService:BlogService) { }
+  vote = true;
 
   ngOnInit(): void {
+    console.log(this.blogscontent)
+  }
+  getBorder(up,down){
+    if (up < down){
+      this.vote = false;
+      console.log(this.vote);
+    }else{
+      this.vote = true;
+      console.log(this.vote)
+    }
+  }
+
+
+  onCardClick(id){
+    localStorage.setItem('id', id);
+    this.router.navigateByUrl('/details');
   }
 
 }

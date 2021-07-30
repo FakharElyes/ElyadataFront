@@ -18,7 +18,10 @@ export class ListBlogsComponent implements OnInit {
   title;
   author;
 
+ 
   blogsauthor;
+  blogstitle;
+  blogscontent
 
   text="test"
 
@@ -50,8 +53,6 @@ export class ListBlogsComponent implements OnInit {
     );
   }
 
-
-
   closeClick(){
     this.ActivateAddBlog=false;
   }
@@ -63,6 +64,10 @@ export class ListBlogsComponent implements OnInit {
 
 
   searchContent(){
+    this.blogs.forEach(element => {
+      if(element.content.includes(this.content)){
+        this.blogscontent = element;
+      }});
     this.listUnfiltred = false;
     this.listFiltredContent = true;
     this.listFiltredTitle = false;
@@ -70,6 +75,10 @@ export class ListBlogsComponent implements OnInit {
   }
 
   searchTitle(){
+    this.blogs.forEach(element => {
+      if(element.title.includes(this.title)){
+        this.blogstitle = element;
+      }});
     this.listUnfiltred = false;
     this.listFiltredContent = false;
     this.listFiltredTitle = true;
@@ -78,9 +87,9 @@ export class ListBlogsComponent implements OnInit {
 
   searchAuthor(){
     this.blogs.forEach(element => {
-      if(element.author == this.author){
-      console.log(element.id)}});
-
+      if(element.author.includes(this.author)){
+        this.blogsauthor = element;
+      }});
     this.listUnfiltred = false;
     this.listFiltredContent = false;
     this.listFiltredTitle = false;

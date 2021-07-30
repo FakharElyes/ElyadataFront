@@ -57,15 +57,15 @@ data-backdrop="static" data-keyboard="false"
 </div>
 
 <div *ngIf="listFiltredContent">
-  <app-list-blogs-content></app-list-blogs-content>
+  <app-list-blogs-content [blogscontent]="blogscontent"></app-list-blogs-content>
 </div>
 
 <div *ngIf="listFiltredTitle">
-  <app-list-blogs-title></app-list-blogs-title>
+  <app-list-blogs-title [blogstitle]="blogstitle"></app-list-blogs-title>
 </div>
 
 <div *ngIf="listFiltredAuthor">
-  <app-list-blogs-author></app-list-blogs-author>
+  <app-list-blogs-author [blogsauthor]="blogsauthor"></app-list-blogs-author>
 </div>
 
 
