@@ -12,6 +12,10 @@ import { CardupComponent } from './cards/cardup/cardup.component';
 import { CarddownComponent } from './cards/carddown/carddown.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListBlogsUnfilComponent } from './blogs/list-blogs/list-blogs-unfil/list-blogs-unfil.component';
+import { ListBlogsContentComponent } from './blogs/list-blogs/list-blogs-content/list-blogs-content.component';
+import { ListBlogsTitleComponent } from './blogs/list-blogs/list-blogs-title/list-blogs-title.component';
+import { ListBlogsAuthorComponent } from './blogs/list-blogs/list-blogs-author/list-blogs-author.component';
 
 
 
@@ -24,6 +28,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DetailBlogComponent,
     CardupComponent,
     CarddownComponent,
+    ListBlogsUnfilComponent,
+    ListBlogsContentComponent,
+    ListBlogsTitleComponent,
+    ListBlogsAuthorComponent,
   ],
   imports: [
     BrowserModule,

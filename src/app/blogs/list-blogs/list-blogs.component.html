@@ -5,6 +5,26 @@ data-backdrop="static" data-keyboard="false"
 >Add Blog</button>
 
 
+<div>
+  <input type="text" 
+        class="form-control" 
+        [(ngModel)]="content"
+        placeholder="Enter content">
+  <button type="button" (click)="searchContent()" >search content</button>
+
+  <input type="text" 
+        class="form-control" 
+        [(ngModel)]="title"
+        placeholder="Enter title">
+  <button type="button" (click)="searchTitle()" >search Title</button>
+
+  <input type="text" 
+        class="form-control" 
+        [(ngModel)]="author"
+        placeholder="Enter author">
+  <button type="button" (click)="searchAuthor()" >search author</button>
+</div>
+
 
 
 
@@ -31,18 +51,21 @@ data-backdrop="static" data-keyboard="false"
 </div>
 
 
-<div *ngFor="let b of blogs" class="data-card" (click)="onCardClick(b.id)"> 
-  <span data-dummy="{{getBorder(b.upvote,b.downvote)}}" ></span>
-    <div *ngIf="vote; else elseBlock" data-test="vote">
-        <app-cardup [title]=b.title [author]=b.author [upvote]=b.upvote [downvote]=b.downvote></app-cardup>
-    </div>
-    <ng-template #elseBlock>
-        <app-carddown [title]=b.title [author]=b.author [upvote]=b.upvote [downvote]=b.downvote></app-carddown>
-    </ng-template>
+
+<div *ngIf="listUnfiltred">
+  <app-list-blogs-unfil [blogs]="blogs"></app-list-blogs-unfil>
 </div>
 
+<div *ngIf="listFiltredContent">
+  <app-list-blogs-content></app-list-blogs-content>
+</div>
 
+<div *ngIf="listFiltredTitle">
+  <app-list-blogs-title></app-list-blogs-title>
+</div>
 
-
+<div *ngIf="listFiltredAuthor">
+  <app-list-blogs-author></app-list-blogs-author>
+</div>
 
 

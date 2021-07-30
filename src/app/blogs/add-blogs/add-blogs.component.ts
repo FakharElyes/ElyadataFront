@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BlogService } from 'src/app/shared/blog.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class AddBlogsComponent implements OnInit {
   content:string;
   author:string;
 
-  constructor(private service:BlogService) { }
+  constructor(private service:BlogService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +29,8 @@ export class AddBlogsComponent implements OnInit {
     this.service.addBlog(val).subscribe(res=>{
       alert(res.toString());
     });
+
+    this.router.navigateByUrl('/blogs');
   }
 
 }

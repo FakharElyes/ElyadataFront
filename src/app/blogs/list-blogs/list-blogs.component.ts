@@ -14,12 +14,29 @@ export class ListBlogsComponent implements OnInit {
   blogs;
   vote = true;
   ActivateAddBlog:boolean=false;
+  content;
+  title;
+  author;
+
+  blogsauthor;
 
   text="test"
+
+  listUnfiltred = true;
+  listFiltredContent = false;
+  listFiltredTitle = false;
+  listFiltredAuthor = false;
 
   ngOnInit(): void {
     this.getAllBlogs();
   }
+
+
+  addClick(){
+    this.ActivateAddBlog=true;
+    console.log("this.ActivateAddBlog",this.ActivateAddBlog)
+  }
+
 
   getAllBlogs(){
     this.blogService.getAllBlogs().subscribe(
@@ -34,26 +51,9 @@ export class ListBlogsComponent implements OnInit {
   }
 
 
-  getBorder(up,down){
-    if (up < down){
-      this.vote = false;
-      console.log(this.vote);
-    }else{
-      this.vote = true;
-      console.log(this.vote)
-    }
-  }
-
-  addClick(){
-    this.ActivateAddBlog=true;
-    console.log("this.ActivateAddBlog",this.ActivateAddBlog)
-  }
-
-
 
   closeClick(){
     this.ActivateAddBlog=false;
-    this.getAllBlogs();
   }
 
   onCardClick(id){
@@ -62,6 +62,31 @@ export class ListBlogsComponent implements OnInit {
   }
 
 
+  searchContent(){
+    this.listUnfiltred = false;
+    this.listFiltredContent = true;
+    this.listFiltredTitle = false;
+    this.listFiltredAuthor = false;
+  }
 
+  searchTitle(){
+    this.listUnfiltred = false;
+    this.listFiltredContent = false;
+    this.listFiltredTitle = true;
+    this.listFiltredAuthor = false;
+  }
+
+  searchAuthor(){
+    this.blogs.forEach(element => {
+      if(element.author == this.author){
+      console.log(element.id)}});
+
+    this.listUnfiltred = false;
+    this.listFiltredContent = false;
+    this.listFiltredTitle = false;
+    this.listFiltredAuthor = true;
+
+    
+  }
 
 }
