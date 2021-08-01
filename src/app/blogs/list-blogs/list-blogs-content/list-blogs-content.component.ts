@@ -13,9 +13,14 @@ export class ListBlogsContentComponent implements OnInit {
 
   constructor(private router: Router, private blogService:BlogService) { }
   vote = true;
+  empty = false;
 
   ngOnInit(): void {
     console.log(this.blogscontent)
+    if (this.blogscontent.length == 0){
+      this.empty = true;
+    }
+    console.log("this.empty",this.empty);
   }
   getBorder(up,down){
     if (up < down){

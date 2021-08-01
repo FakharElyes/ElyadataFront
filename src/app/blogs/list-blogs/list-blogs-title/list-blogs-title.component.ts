@@ -11,10 +11,15 @@ export class ListBlogsTitleComponent implements OnInit {
 
   @Input() blogstitle;
   vote
+  empty = false;
   constructor(private router: Router, private blogService:BlogService) { }
 
   ngOnInit(): void {
     console.log(this.blogstitle)
+    if (this.blogstitle.length == 0){
+      this.empty = true;
+    }
+    console.log("this.empty",this.empty);
   }
 
   getBorder(up,down){

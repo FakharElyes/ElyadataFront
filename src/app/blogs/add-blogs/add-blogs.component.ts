@@ -27,10 +27,8 @@ export class AddBlogsComponent implements OnInit {
       downvote:"0"
     };
     this.service.addBlog(val).subscribe(res=>{
-      alert(res.toString());
+      alert("blog added");
     });
-
-    this.router.navigateByUrl('/blogs');
   }
 
 }

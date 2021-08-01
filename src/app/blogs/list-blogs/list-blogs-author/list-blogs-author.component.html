@@ -1,17 +1,19 @@
 <div *ngFor="let b of blogsauthor" class="data-card" (click)="onCardClick(b.id)"> 
     <span data-dummy="{{getBorder(b.upvote,b.downvote)}}" ></span>
-      
-      <div *ngIf="vote; else elseBlock" data-test="vote">
-          <app-cardup [title]=b.title 
+    <div *ngIf="vote; else elseBlock" data-test="vote">
+        <app-cardup [title]=b.title 
+                [author]=b.author 
+                [upvote]=b.upvote 
+                [downvote]=b.downvote></app-cardup>
+    </div>
+    <ng-template #elseBlock>
+        <app-carddown [title]=b.title 
                     [author]=b.author 
                     [upvote]=b.upvote 
-                    [downvote]=b.downvote></app-cardup>
-      </div>
-      <ng-template #elseBlock>
-          <app-carddown [title]=b.title 
-                        [author]=b.author 
-                        [upvote]=b.upvote 
-                        [downvote]=b.downvote></app-carddown>
-      </ng-template>
+                    [downvote]=b.downvote></app-carddown>
+    </ng-template>
+</div>
 
-      </div>
+<div *ngIf="empty">
+    There are no results with that author
+</div>

@@ -14,9 +14,15 @@ export class ListBlogsAuthorComponent implements OnInit {
   constructor(private router: Router, private blogService:BlogService) { }
 
   vote = true;
+  empty = false;
   
 
   ngOnInit(): void {
+    if (this.blogsauthor.length == 0){
+      this.empty = true;
+    }
+    console.log("this.empty",this.empty);
+
   }
   
   getBorder(up,down){
